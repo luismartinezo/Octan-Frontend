@@ -11,6 +11,7 @@ import { UsersComponent } from './Components/users/users.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import { NavComponent } from './Shared/nav/nav.component';
 import { UserAddComponent } from './Components/user-add/user-add.component';
+import { UserEditComponent } from './Components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserAddComponent } from './Components/user-add/user-add.component';
     NavComponent,
     FooterComponent,
     UsersComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

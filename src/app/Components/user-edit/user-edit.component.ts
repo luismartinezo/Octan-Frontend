@@ -5,22 +5,19 @@ import { RolService } from 'src/app/Services/rol.service';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 
 @Component({
-  selector: 'app-user-add',
-  templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.css'],
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
 })
-export class UserAddComponent implements OnInit {
+export class UserEditComponent implements OnInit {
   usuarioForm!: FormGroup;
   usuarios: any = [];
   roles: any = [];
-
-  constructor(
-    public fb: FormBuilder,
+  constructor(public fb: FormBuilder,
     public usuarioService: UsuarioService,
     public rolService: RolService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {}
+    private activatedRoute: ActivatedRoute,) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
@@ -42,21 +39,14 @@ export class UserAddComponent implements OnInit {
     );
   }
 
-  // Guardar Usuario
-  guardar(): void {
-    this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(
-      (resp) => {
-        this.usuarioForm.reset();
-        this.usuarios = this.usuarios.filter(
-          (usuario: { id: any }) => resp.id !== usuario.id
-        );
-        this.usuarios.push(resp);
-        this.router.navigate(['']);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-    // console.log(this.usuarioForm.value);
+  // Editar Usuarios
+  editar(usuario: { id: any; nombre: any; activo: any; rol: any; }){
+    this.usuarioForm.setValue({
+      id:usuario.id,
+      nombre: usuario.nombre ,
+      activo: usuario.activo ,
+      rol: usuario.rol,
+    })
+    window.location.reload();
   }
 }

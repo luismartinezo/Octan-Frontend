@@ -30,16 +30,9 @@ export class UsersComponent implements OnInit {
       if(resp===true){
         this.usuarios.pop(usuario)
       }
+      window.location.reload();
     })
   }
-// Editar Usuarios
-  editar(usuario: { id: any; nombre: any; activo: any; rol: any; }){
-    this.usuarioForm.setValue({
-      id:usuario.id,
-      nombre: usuario.nombre ,
-      activo: usuario.activo ,
-      rol: usuario.rol,
-    })
-  }
+
 
 }
