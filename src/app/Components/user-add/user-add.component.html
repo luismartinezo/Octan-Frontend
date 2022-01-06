@@ -1,0 +1,46 @@
+<div class="row">
+  <h2>Crear Usuario</h2>
+  <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+    <div class="form-group">
+      <div class="col-md-6">
+        <input type="numer" id="id" name="id" formControlName="id" value=0 class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+        <label>Nombre</label>
+        <input type="text" id="nombre" name="nombre" formControlName="nombre" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label>Activo</label>
+          <div class="input-group">
+            <div class="input-group-text">
+              <input class="form-check-input mt-0" type="radio" id="activo" name="activo" value="S" formControlName="activo">
+            </div>
+            <input type="text" class="form-control" placeholder="Si">
+          </div>
+          <div class="input-group">
+            <div class="input-group-text">
+              <input class="form-check-input mt-0" type="radio" id="activo" name="activo" value="N" formControlName="activo">
+            </div>
+            <input type="text" class="form-control" placeholder="No">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>rol</label>
+            <select name="rol" id="rol" formControlName="rol" class="form-select">
+              <option [ngValue]="item" *ngFor="let item of roles">{{item.nombre}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Guardar</button>
+
+  </form>
+</div>
