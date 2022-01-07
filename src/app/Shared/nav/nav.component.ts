@@ -12,4 +12,9 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  buscarUsuario( termino: string ) {
+
+    if ( termino.length < 1 ) {
+      return;
+    }}
 }

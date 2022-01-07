@@ -1,38 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-
   usuarioForm!: FormGroup;
-  usuarios:any=[];
-
-  constructor(public fb: FormBuilder, public usuarioService: UsuarioService) { }
+  usuarios: any = [];
+roles: any = {};
+  constructor(
+    public fb: FormBuilder,
+    public usuarioService: UsuarioService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
-    
     // Listar los usuarios
-    this.usuarioService.getAllUsuarios().subscribe(resp=>{
-      this.usuarios = resp;
-      console.log(this.usuarios);
-    }, 
-    error => { console.error(error) }
+    this.usuarioService.getAllUsuarios().subscribe(
+      (resp) => {
+        this.usuarios = resp;
+        this.roles.rol = resp.rol;
+      },
+      (error) => {
+        console.error(error);
+      }
     );
   }
-// Eliminar usuarios
-  eliminar(usuario: { id: any; }){
-    this.usuarioService.deleteUsuario(usuario.id).subscribe((resp: boolean)=>{
-      if(resp===true){
-        this.usuarios.pop(usuario)
+  // Eliminar usuarios
+  eliminar(usuario: { id: any }) {
+    confirm(`Esta seguro que quiere eliminar?`);
+    this.usuarioService.deleteUsuario(usuario.id).subscribe((resp: boolean) => {
+      if (resp === true) {
+        this.usuarios.pop(usuario);
+      }else{
+
       }
       window.location.reload();
-    })
+    });
   }
-
-
 }

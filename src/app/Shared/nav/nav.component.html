@@ -6,5 +6,19 @@
   />
   <span>Gestion de Usuario</span>
     <div class="spacer"></div>
+    <div class="rk-search">
+      <input type="search" class="form-control"
+             (keyup.enter)="buscarUsuario( txtBuscar.value )"
+             placeholder="Buscar..."
+             id="urku-search"
+             class="rk-search-field"
+             #txtBuscar>
+
+      <label for="urku-search">
+        <svg>
+          <use xlink:href="assets/img/symbols.svg#icon-search"></use>
+        </svg>
+      </label>
+    </div>
   <button type="button" class="btn btn-primary" routerLink="/">Listar Usuario</button>
 </div>

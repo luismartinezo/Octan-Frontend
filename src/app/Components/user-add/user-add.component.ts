@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { RolService } from 'src/app/Services/rol.service';
 import { UsuarioService } from 'src/app/Services/usuario.service';
 
@@ -20,6 +21,7 @@ export class UserAddComponent implements OnInit {
     public rolService: RolService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -52,6 +54,7 @@ export class UserAddComponent implements OnInit {
         );
         this.usuarios.push(resp);
         this.router.navigate(['']);
+        this.toastr.success("Usuario Creado!")
       },
       (error) => {
         console.error(error);
