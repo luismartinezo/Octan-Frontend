@@ -27,8 +27,8 @@ private API_SERVER = "http://localhost:8090/api/v1/usuarios/";
   }
 
   // Actualizar
-  public updateUsuario(id: any, usuario: any): Observable<any>{
-    return this.httpClient.put(this.API_SERVER + "update/"+id, usuario)
+  public updateUsuario(usuario: any): Observable<any>{
+    return this.httpClient.post(this.API_SERVER + "update/", usuario)
   }
 
   // Detalle por ID 

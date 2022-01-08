@@ -13,6 +13,8 @@ import { NavComponent } from './Shared/nav/nav.component';
 import { UserAddComponent } from './Components/user-add/user-add.component';
 import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SearchComponent } from './Components/search/search.component';
+import { SearchPipe } from './Pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     UsersComponent,
     UserAddComponent,
-    UserEditComponent
+    UserEditComponent,
+    SearchComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

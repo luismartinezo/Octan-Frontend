@@ -9,9 +9,15 @@ import { UsuarioService } from 'src/app/Services/usuario.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
+  handleSearch(value: string): void {
+    // console.log(value);
+    this.filtro_valor = value;
+  }
+
   usuarioForm!: FormGroup;
   usuarios: any = [];
-roles: any = {};
+  roles: any = {};
+  filtro_valor = '';
   constructor(
     public fb: FormBuilder,
     public usuarioService: UsuarioService,
@@ -36,8 +42,7 @@ roles: any = {};
     this.usuarioService.deleteUsuario(usuario.id).subscribe((resp: boolean) => {
       if (resp === true) {
         this.usuarios.pop(usuario);
-      }else{
-
+      } else {
       }
       window.location.reload();
     });

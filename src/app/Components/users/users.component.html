@@ -1,4 +1,4 @@
-
+<app-search (search)="handleSearch($event)"></app-search>
 <div class="table table-striped">
   <h2>Usuarios Registrados</h2>
   <button type="button" class="btn btn-primary" style="float: right;" routerLink="/add">Agregar Usuario</button>
@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of usuarios">
+        <tr *ngFor="let item of usuarios | search:filtro_valor">
           <th>{{item.id}}</th>
           <td>{{item.nombre}}</td>
           <td>{{item.activo}}</td>

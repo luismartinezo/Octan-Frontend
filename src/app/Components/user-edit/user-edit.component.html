@@ -3,30 +3,15 @@
   <form [formGroup]="usuarioForm" (ngSubmit)="editar()" novalidate>
     <div class="form-group">
       <div class="col-md-6">
-        <input
-          type="number"
-          id="id"
-          name="id"
-          hidden
-          required
-          formControlName="id"
-          [(ngModel)]="form.id"
-          class="form-control"
-        />
+        <input type="number" id="id" name="id" required formControlName="id" [(ngModel)]="form.id"
+          class="form-control" />
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-6">
         <label>Nombre</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          required
-          formControlName="nombre"
-          [(ngModel)]="form.nombre"
-          class="form-control"
-        />
+        <input type="text" id="nombre" name="nombre" required formControlName="nombre" [(ngModel)]="form.nombre"
+          class="form-control" />
       </div>
     </div>
     <div class="row">
@@ -35,46 +20,23 @@
           <label>Activo</label>
           <div class="input-group">
             <div class="input-group-text">
-              <input
-                class="form-check-input mt-0"
-                type="radio"
-                id="activo"
-                name="activo"
-                value="S"
-                required
-                [(ngModel)]="form.activo"
-                formControlName="activo"
-              />
+              <input class="form-check-input mt-0" type="radio" id="activo" name="activo" value="S" required
+                [(ngModel)]="form.activo" formControlName="activo" />
             </div>
             <input type="text" class="form-control" placeholder="Si" />
           </div>
           <div class="input-group">
             <div class="input-group-text">
-              <input
-                class="form-check-input mt-0"
-                type="radio"
-                id="activo"
-                name="activo"
-                value="N"
-                required
-                [(ngModel)]="form.activo"
-                formControlName="activo"
-              />
+              <input class="form-check-input mt-0" type="radio" id="activo" name="activo" value="N" required
+                [(ngModel)]="form.activo" formControlName="activo" />
             </div>
             <input type="text" class="form-control" placeholder="No" />
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label>rol</label>
-            <select
-              name="rol"
-              id="rol"
-              required
-              formControlName="rol"
-              class="form-select"
-              [(ngModel)]="form.rol"
-            >
+            <label>Rol</label>
+            <select name="rol" id="rol" required formControlName="rol" class="form-select" [(ngModel)]="form.rol">
               <option [ngValue]="item" *ngFor="let item of roles">
                 {{ item.nombre }}
               </option>
@@ -83,11 +45,7 @@
         </div>
       </div>
     </div>
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="usuarioForm.invalid"
-    >
+    <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">
       Guardar
     </button>
   </form>

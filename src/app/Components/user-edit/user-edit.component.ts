@@ -58,7 +58,7 @@ export class UserEditComponent implements OnInit {
     
     const id = this.activatedRoute.snapshot.params.id;
     console.log(this.form,id);
-    this.usuarioService.updateUsuario(id,this.form).subscribe(data=>{
+    this.usuarioService.updateUsuario(this.form).subscribe(data=>{
       this.usuarios = data;
       
       this.toastr.success('Registro Actualizado Correctamente!');
