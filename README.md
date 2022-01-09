@@ -1,6 +1,7 @@
-# GestionUser
+# User Management
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+When we have already run the backend and then this frontend, we proceed to carry out the user management, initially registering the roles and users with their respective role
 
 ## Development server
 
