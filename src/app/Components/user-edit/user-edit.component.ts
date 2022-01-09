@@ -62,14 +62,8 @@ export class UserEditComponent implements OnInit {
       this.usuarios = data;
       
       this.toastr.success('Registro Actualizado Correctamente!');
-      this.router.navigate(['']);
+      this.router.navigate(['user']);
     });
-    // this.usuarioForm.setValue({
-    //   id:usuario.id,
-    //   nombre: usuario.nombre ,
-    //   activo: usuario.activo ,
-    //   rol: usuario.rol,
-    // })
   }
   onItemChange(value: any){
     console.log(" Value is : ", value );

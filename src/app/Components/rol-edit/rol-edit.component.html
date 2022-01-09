@@ -1,0 +1,21 @@
+<div class="row">
+  <h2>Actualizar Rol</h2>
+  <form [formGroup]="rolForm" (ngSubmit)="editar()" novalidate>
+    <div class="form-group">
+      <div class="col-md-6">
+        <input type="number" id="id" name="id" required formControlName="id" [(ngModel)]="form.id"
+          class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">
+        <label>Nombre</label>
+        <input type="text" id="nombre" name="nombre" required formControlName="nombre" [(ngModel)]="form.nombre"
+          class="form-control" />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="rolForm.invalid">
+      Guardar
+    </button>
+  </form>
+</div>

@@ -43,6 +43,7 @@ export class UsersComponent implements OnInit {
       if (resp === true) {
         this.usuarios.pop(usuario);
       } else {
+        alert("Error: " + resp);
       }
       window.location.reload();
     });

@@ -15,6 +15,10 @@ import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SearchComponent } from './Components/search/search.component';
 import { SearchPipe } from './Pipes/search.pipe';
+import { RolComponent } from './Components/rol/rol.component';
+import { RolAddComponent } from './Components/rol-add/rol-add.component';
+import { RolEditComponent } from './Components/rol-edit/rol-edit.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { SearchPipe } from './Pipes/search.pipe';
     UserAddComponent,
     UserEditComponent,
     SearchComponent,
-    SearchPipe
+    SearchPipe,
+    RolComponent,
+    RolAddComponent,
+    RolEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
